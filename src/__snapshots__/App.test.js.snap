@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="sc-eCApGN gQbtHi"
+  >
+    <div
+      className="sc-hKFyIo kqMvmw"
+    >
+      <img
+        alt="logo"
+        src="cloud-district.jpg"
+      />
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "marginLeft": "60px",
+          }
+        }
+      >
+        <div
+          className="sc-jSFkmK kejZNR"
+        >
+          Social Login
+        </div>
+        <button
+          className="sc-bdnylx jQdzMk"
+          onClick={[Function]}
+        >
+          <span>
+            Sign in with Google
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
