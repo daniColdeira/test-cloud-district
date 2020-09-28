@@ -6,7 +6,7 @@ exports[`renders correctly 1`] = `
     className="sc-bdnylx izYJON"
   >
     <div
-      className="sc-dlnjPT kDuYLP"
+      className="sc-hKFyIo jsSxpJ"
     >
       <img
         alt="logo"
@@ -18,18 +18,20 @@ exports[`renders correctly 1`] = `
         }
       />
       <div
-        className="sc-hKFyIo fyAEwx"
+        className="sc-eCApGN hcaIrc"
       >
         <div
-          className="sc-gtssRu jjLJRN"
+          className="sc-dlnjPT hKjwxJ"
         >
           Social Login
         </div>
         <button
-          className="sc-eCApGN ePxeUX"
+          className="sc-jSFkmK gaEyV"
           onClick={[Function]}
         >
-          <span>
+          <span
+            className="sc-gtssRu jEzxKR"
+          >
             Sign in with Google
           </span>
         </button>
