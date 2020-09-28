@@ -34,6 +34,8 @@ export const Link = styled.div`
   cursor: pointer;
   padding: 10px 20px 20px;
   min-width:calc(100% - 40px);
+  display: flex;
+  justify-content: center;
   &:hover {
     background-color: #92A0A6; // <Thing> when hovered
     color: white;
@@ -42,10 +44,16 @@ export const Link = styled.div`
   
 `
 
+export const MinWidth = styled.div`
+  width: min-content;
+`
+
 export const CloseIcon = styled.div`
   cursor: pointer;
   padding: 5px;
   width: min-content;
+  position: relative;
+  left: 90%;
   &:hover {
     color: red;
   }
@@ -59,7 +67,7 @@ export const WrapperUsers = styled.div`
   align-items: center;
   min-width: 60vw;
   min-height: 370px;
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     flex-direction: column;
   }
 `;
@@ -119,6 +127,12 @@ export const UsersDiv = styled.div `
   align-items: center;
   justify-content: center;
   min-width: 30%;
+  padding: 20px;
+  border-radius: ${props => props.radius || "0"};
+  border: ${props => props.border || ""};
+  -webkit-box-shadow: ${props => props.shadow || ""};
+  -moz-box-shadow: ${props => props.shadow || ""};
+  box-shadow: ${props => props.shadow || ""};
 `
 
 export const FlexPointer = styled.div `
@@ -152,7 +166,7 @@ export const InfoUser = styled.div`
   flex-direction: column;
   justify-content: center; 
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     margin: 30px 0;
   }
 `
@@ -161,6 +175,7 @@ export const UserForm = styled.div`
   justify-content: space-around;
   flex-direction: column;
   height: min-content;
+  padding: 20px;
 `
 
 export const PagLink = styled.div`
@@ -178,6 +193,12 @@ export const FlexDiv= styled.div`
   flex-direction: column; 
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  border: ${props => props.border || ""};
+  border-radius: ${props => props.radius || 0};
+  -webkit-box-shadow: ${props => props.shadow || ""};
+  -moz-box-shadow: ${props => props.shadow || ""};
+  box-shadow: ${props => props.shadow || ""};
 `  
 
 export const FlexColumn= styled.div`

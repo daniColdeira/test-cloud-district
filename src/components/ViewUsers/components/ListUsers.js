@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import axios from "axios";
-import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15} from '../styled';
+import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth} from '../styled';
 
 function GoogleLogout() {
     const [users, setUsers] = useState([]);
@@ -41,7 +41,7 @@ function GoogleLogout() {
           <ListUsers>
             {
               users.data && users.data.map((user) => 
-                  <Link onClick={() => getUser(user.id)}>{user.email}</Link>
+                  <Link onClick={() => getUser(user.id)}><MinWidth>{user.email}</MinWidth></Link>
               )
             } 
             <FlexPointer>

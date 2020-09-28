@@ -39,7 +39,7 @@ function GoogleLogout() {
     {
             successUser.open &&
             
-            <UsersDiv>
+            <UsersDiv border={'2px solid #62696C'} radius={"20px"} shadow={"5px 4px 5px 0px rgba(98,105,108,1)"}>
               <UserForm> 
                 <CloseIcon onClick={closeInfo}>X</CloseIcon>
                 <div>
@@ -60,7 +60,7 @@ function GoogleLogout() {
       
       {
             openForm.open &&
-            <FlexDiv>
+            <FlexDiv border={'2px solid #62696C'} radius={"20px"} shadow={"5px 4px 5px 0px rgba(98,105,108,1)"}>
                 <Flex>
                     <FlexColumn> 
                       <span>Nombre</span>
