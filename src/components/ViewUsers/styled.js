@@ -12,8 +12,8 @@ export const Button = styled.button`
   cursor: pointer;
   min-width: 105px;
   &:hover {
-    border: 2px solid #40D8E1; // <Thing> when hovered
-    color: #40D8E1;
+    border: 2px solid  ${props => props.color || "#40D8E1"};
+    color: ${props => props.color || "#40D8E1"};
   } 
 `;
 

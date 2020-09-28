@@ -79,7 +79,7 @@ function GoogleLogout() {
                     </FlexColumn>
                 }
                   <Flex>
-                  <Button onClick={() => setOpenForm(false)}>Cancelar</Button>
+                  <Button color={"#BF350A"} onClick={() => setOpenForm(false)}>Cancelar</Button>
                 {
                   openForm.type==='updated' ?
                   <Button onClick={() => updateUsers()}>Updated</Button>
