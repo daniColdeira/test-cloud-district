@@ -3,7 +3,7 @@ import { useGoogleLogin } from 'react-google-login';
 import { store } from '../../store/store.js';
 import { refreshToken } from '../../utils/refreshToken';
 import cloud from '../../img/cloud-district.jpg'
-import { Button, WrapperLogin, LoginTitle, LoginDiv, LoginSocial } from './styled';
+import { Button, WrapperLogin, LoginTitle, LoginDiv, LoginSocial, LoginName } from './styled';
 
 function Login() { 
     const globalState = useContext(store);
@@ -31,7 +31,7 @@ function Login() {
                 <LoginSocial margin={"0 0 0 60px"}>
                     <LoginTitle>Social Login</LoginTitle>
                     <Button onClick={signIn}>
-                        <span>Sign in with Google</span>
+                        <LoginName>Sign in with Google</LoginName>
                     </Button>
                 </LoginSocial>
            </LoginDiv> 

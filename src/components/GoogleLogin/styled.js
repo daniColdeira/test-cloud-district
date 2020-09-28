@@ -8,6 +8,14 @@ export const WrapperLogin = styled.div`
   background-color: rgb(146, 160, 166, 0.2);
 `
 
+export const LoginName = styled.span`
+  font-weight: 600;
+  font-size: 1.5vw;
+  @media (max-width: 960px) {
+    font-size: 2vw;
+  }
+`
+
 export const LoginTitle = styled.div`
   font-weight: 600;
   font-size: 2.5vw;
@@ -42,10 +50,14 @@ export const Button = styled.button`
   font-size: 1em;
   margin: 1em;
   padding: 0.50em 1em;
-  border: 2px solid #282c34;
+  border: 3px solid #282c34;
   border-radius: 3px;
   display: block;
   cursor: pointer;
   min-width: 105px;
+  &:hover {
+    color: #40D8E1;
+    border: 3px solid #40D8E1;
+  }
 `;
 
