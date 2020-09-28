@@ -32,6 +32,7 @@ export const LoginSocial = styled.input`
   justifyContent: center; 
   alignItems: center;   
   margin: ${props => props.inputColor || "0"};
+  
 `;
 
 export const Bold = styled.span`
@@ -108,8 +109,14 @@ export const InfoGoogle = styled.div`
     border-radius: 10px;
     padding: 3% 6%;
     -webkit-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
--moz-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
+    -moz-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
+    box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
+    @media (max-width: 600px) {
+      padding: 15px;
+      font-size: 10px;
+      flex-direction: column;
+    }
+
 `
 
 export const ListUsers = styled.div`
@@ -129,6 +136,9 @@ export const ListUsers = styled.div`
     box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
     @media (max-width: 960px) {
       margin-bottom: 30px;
+    }
+    @media (max-width: 500px) {
+      min-width: 0;
     }
 `
 
@@ -161,6 +171,9 @@ export const FlexPointer = styled.div `
 
 export const Flex = styled.div `
   display: flex; 
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 export const Margin15 = styled.div`
@@ -175,6 +188,12 @@ export const DivGoogle = styled.div`
   display: flex; 
   flex-direction: column; 
   margin: 0 20px;
+  @media (max-width: 600px) {
+    padding: 40px 50px;
+    font-size: 10px;
+    flex-direction: column;
+    margin: 10px 0 0;
+  }
 `
 
 export const TitleUsers = styled.div`

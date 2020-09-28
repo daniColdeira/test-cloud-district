@@ -14,12 +14,18 @@ export const LoginName = styled.span`
   @media (max-width: 960px) {
     font-size: 2vw;
   }
+  @media (max-width: 600px) {
+    font-size: 11px;
+  }
 `
 
 export const LoginTitle = styled.div`
   font-weight: 600;
   font-size: 2.5vw;
   color: #282c34;
+  @media (max-width: 600px) {
+    font-size: 11px;
+  }
 `
 
   export const LoginDiv = styled.div`
@@ -28,11 +34,14 @@ export const LoginTitle = styled.div`
   justify-content: center;
   align-items: center;
   width: 50vw;
-  border: 1px solid #62696C;
+  border: 2px solid #62696C;
     border-radius: 10px;
     padding: 40px 80px;
   margin: 150px 100px;
   background-color: white;
+  @media (max-width: 600px) {
+    padding: 40px 50px;
+  }
  
 `
 
@@ -42,6 +51,9 @@ export const LoginSocial = styled.div`
   justify-content: center; 
   align-items: center;   
   margin: ${props => props.margin || "0"};
+  @media (max-width: 600px) {
+    margin: 0;
+  }
 `;
 
 export const Button = styled.button`
