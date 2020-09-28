@@ -47,5 +47,9 @@ export const Button = styled.button`
   display: block;
   cursor: pointer;
   min-width: 105px;
+  &:hover {
+    border: 2px solid #BF350A ; // <Thing> when hovered
+    color: #BF350A ;
+  } 
 `;
 
