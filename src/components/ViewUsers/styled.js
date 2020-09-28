@@ -30,6 +30,10 @@ export const LoginSocial = styled.input`
   margin: ${props => props.inputColor || "0"};
 `;
 
+export const Bold = styled.span`
+  font-weight: 600;
+`
+
 export const Link = styled.div`
   cursor: pointer;
   padding: 10px 20px 20px;
@@ -57,8 +61,6 @@ export const CloseIcon = styled.div`
   &:hover {
     color: red;
   }
-  border: 1px solid #282c34;
-  
 `
 
 export const WrapperUsers = styled.div`

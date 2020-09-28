@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import { Input, Button, CloseIcon, UsersDiv, FlexDiv, FlexColumn, UserForm, Flex, Margin15} from '../styled';
+import { Input, Button, CloseIcon, UsersDiv, FlexDiv, FlexColumn, UserForm, Flex, Margin15, Bold} from '../styled';
 
 function GoogleLogout() {
     const[successUser, setSuccessUser] = useState({ open:false, data:{}});
@@ -43,15 +43,15 @@ function GoogleLogout() {
               <UserForm> 
                 <CloseIcon onClick={closeInfo}>X</CloseIcon>
                 <div>
-                  {`ID: ${successUser.data.id}`}
+                  <Bold>ID</Bold>{`: ${successUser.data.id}`}
                 </div>
                 <Margin15>
-                  {`Puesto: ${successUser.data.job} Nombre: ${successUser.data.name}`}
+                  <><Bold>Puesto</Bold>{`: ${successUser.data.job}`} <Bold>Nombre</Bold>{`: ${successUser.data.name}`}</>
                 </Margin15>
                 <div>{ successUser.type === 'created' ?
-                `Fecha de creación: ${new Date(successUser.data.createdAt).toString()}`
+                  <><Bold>Fecha de creación</Bold>`: ${new Date(successUser.data.createdAt).toString()}`</>
                 :
-                `Fecha de actualización: ${new Date(successUser.data.updatedAt).toString()}`
+                <><Bold>Fecha de actualización</Bold>`: ${new Date(successUser.data.updatedAt).toString()}`</>
                 }</div>
               </UserForm>
               
@@ -63,18 +63,18 @@ function GoogleLogout() {
             <FlexDiv border={'2px solid #62696C'} radius={"20px"} shadow={"5px 4px 5px 0px rgba(98,105,108,1)"}>
                 <Flex>
                     <FlexColumn> 
-                      <span>Nombre</span>
+                      <Bold>Nombre</Bold>
                       <Input onChange={(event) => setNewUser({ ...newUser, name: event.target.value})}/>
                     </FlexColumn>
                     <FlexColumn>
-                      <span>Puesto</span>
+                      <Bold>Puesto</Bold>
                       <Input onChange={(event) => setNewUser({ ...newUser, job: event.target.value})}/>
                     </FlexColumn>
                 </Flex>
                 {
                   openForm.type ==='updated' &&
                     <FlexColumn>
-                      <span>Id</span>
+                      <Bold>Id</Bold>
                       <Input onChange={(event) => setNewUser({ ...newUser, id: event.target.value})}/>
                     </FlexColumn>
                 }
