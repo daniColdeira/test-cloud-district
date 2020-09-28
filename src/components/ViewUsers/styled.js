@@ -63,11 +63,21 @@ export const CloseIcon = styled.div`
   }
 `
 
+export const Close = styled.div`
+  cursor: pointer;
+  padding: 5px;
+  width: min-content;
+  &:hover {
+    color: red;
+  }
+`
+
 export const WrapperUsers = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   min-width: 60vw;
+  max-width: 80vw;
   min-height: 370px;
   @media (max-width: 960px) {
     flex-direction: column;
@@ -113,6 +123,9 @@ export const ListUsers = styled.div`
     -webkit-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
     -moz-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
     box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
+    @media (max-width: 960px) {
+      margin-bottom: 30px;
+    }
 `
 
 export const FlexUser= styled.div`
@@ -150,6 +163,10 @@ export const Margin15 = styled.div`
   margin: 15px 0;
 `
 
+export const MarginTop = styled.div`
+  margin-top: 30px;
+`
+
 export const DivGoogle = styled.div`
   display: flex; 
   flex-direction: column; 
@@ -168,9 +185,6 @@ export const InfoUser = styled.div`
   flex-direction: column;
   justify-content: center; 
   align-items: center;
-  @media (max-width: 960px) {
-    margin: 30px 0;
-  }
 `
 export const UserForm = styled.div`
   display: flex;

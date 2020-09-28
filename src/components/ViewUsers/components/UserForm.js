@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import { Input, Button, CloseIcon, UsersDiv, FlexDiv, FlexColumn, UserForm, Flex, Margin15, Bold} from '../styled';
+import { Input, Button, CloseIcon, UsersDiv, FlexDiv, FlexColumn, UserForm, Flex, Margin15, Bold, MarginTop} from '../styled';
 
 function GoogleLogout() {
     const[successUser, setSuccessUser] = useState({ open:false, data:{}});
@@ -27,7 +27,7 @@ function GoogleLogout() {
       }
 
     return (
-        <>
+        <MarginTop>
         {
             !openForm.open &&  !successUser.open && 
             <UsersDiv>
@@ -49,9 +49,9 @@ function GoogleLogout() {
                   <><Bold>Puesto</Bold>{`: ${successUser.data.job}`} <Bold>Nombre</Bold>{`: ${successUser.data.name}`}</>
                 </Margin15>
                 <div>{ successUser.type === 'created' ?
-                  <><Bold>Fecha de creación</Bold>`: ${new Date(successUser.data.createdAt).toString()}`</>
+                  <><Bold>Fecha de creación</Bold>: {new Date(successUser.data.createdAt).toString()}</>
                 :
-                <><Bold>Fecha de actualización</Bold>`: ${new Date(successUser.data.updatedAt).toString()}`</>
+                <><Bold>Fecha de actualización</Bold>: {new Date(successUser.data.updatedAt).toString()}</>
                 }</div>
               </UserForm>
               
@@ -90,7 +90,7 @@ function GoogleLogout() {
                 
             </FlexDiv>
         }
-        </>
+        </MarginTop>
     );
 }
 

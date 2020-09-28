@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import axios from "axios";
-import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth, Bold} from '../styled';
+import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth, Bold, Close} from '../styled';
 
 function GoogleLogout() {
     const [users, setUsers] = useState([]);
@@ -34,6 +34,10 @@ function GoogleLogout() {
         return paginations;
     }
 
+    const closeInfo = () => {
+      setUser(null)
+    }
+
     return (
         <>
           <ListUsers>
@@ -54,6 +58,7 @@ function GoogleLogout() {
             {
               user &&
                 <InfoUser>
+                  
                   <div>
                     <Bold>Email</Bold>{`: ${user.data.email}`}
                   </div>
@@ -61,6 +66,7 @@ function GoogleLogout() {
                     <Bold>Nombre</Bold>{`: ${user.data.first_name} ${user.data.last_name}`}
                   </Margin15>
                   <img src={user.data.avatar} alt="avatar" />
+                  <Close onClick={closeInfo}>Cerrar</Close>
                 </InfoUser>
               }
           </FlexUser>
