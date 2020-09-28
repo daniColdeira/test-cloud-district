@@ -7,20 +7,18 @@ function GoogleLogout() {
     const[user, setUser] = useState(null);
 
     useEffect(() => {
-        // Actualiza el título del documento usando la API del navegador
+        // Obtiene la primera página de la lista de usuarios 
         getUsers(1);
       }, []);
 
     const getUsers = (page) => {
         axios.get("https://reqres.in/api/users?page=" + page + "&per_page=5").then(response => {
-          console.log(response.data, 'Data', response.data.data)
           setUsers(response.data)
         })
       }
     
       const getUser = (id) => {
         axios.get("https://reqres.in/api/users/" + id).then(response => {
-          console.log(response.data, 'Data', response.data.data)
           setUser(response.data)
         })
       }

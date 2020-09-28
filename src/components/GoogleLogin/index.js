@@ -8,7 +8,6 @@ import { Button, WrapperLogin, LoginTitle, LoginDiv, LoginSocial } from './style
 function Login() { 
     const globalState = useContext(store);
     const onSuccess = (response) => {
-        console.log('Login', response);
         refreshToken(response);
         const { dispatch } = globalState;
         dispatch({ type: 'login', payload: response })
