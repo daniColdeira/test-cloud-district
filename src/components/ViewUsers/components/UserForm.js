@@ -75,7 +75,7 @@ function GoogleLogout() {
                   openForm.type ==='updated' &&
                     <FlexColumn>
                       <Bold>Id</Bold>
-                      <Input onChange={(event) => setNewUser({ ...newUser, id: event.target.value})}/>
+                      <Input type="number" onChange={(event) => setNewUser({ ...newUser, id: event.target.value})}/>
                     </FlexColumn>
                 }
                   <Flex>
