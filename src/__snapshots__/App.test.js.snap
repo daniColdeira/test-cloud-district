@@ -3,33 +3,30 @@
 exports[`renders correctly 1`] = `
 <div>
   <div
-    className="sc-eCApGN gQbtHi"
+    className="sc-bdnylx izYJON"
   >
     <div
-      className="sc-hKFyIo kqMvmw"
+      className="sc-dlnjPT kDuYLP"
     >
       <img
         alt="logo"
         src="cloud-district.jpg"
-      />
-      <div
         style={
           Object {
-            "alignItems": "center",
-            "display": "flex",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginLeft": "60px",
+            "width": "20vw",
           }
         }
+      />
+      <div
+        className="sc-hKFyIo fyAEwx"
       >
         <div
-          className="sc-jSFkmK kejZNR"
+          className="sc-gtssRu jjLJRN"
         >
           Social Login
         </div>
         <button
-          className="sc-bdnylx jQdzMk"
+          className="sc-eCApGN ePxeUX"
           onClick={[Function]}
         >
           <span>
