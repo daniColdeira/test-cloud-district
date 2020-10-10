@@ -6,7 +6,8 @@ import {
   GET_USER_REQUEST,  
   SET_USER_REQUEST, 
   SET_USER_SUCCESS,
-  SET_USER_FAILURE, GET_USERS_REQUEST
+  SET_USER_FAILURE, 
+  GET_USERS_REQUEST
 } from "../types.js";
 
 const initialState = {
@@ -21,18 +22,18 @@ const initialState = {
 
 const users = (previousState = initialState, action) => {
   switch (action.type) {
-    case GET_USERS_REQUEST:
-      return Object.assign({}, previousState, { loadingUsers: action.payload });
     case GET_USERS_SUCCESS:
       return Object.assign({}, previousState, { users: action.payload, loadingUsers: false });
     case GET_USERS_FAILURE:
       return Object.assign({}, previousState, { error: action.payload, loadingUsers: false });
+    case GET_USERS_REQUEST:
+      return Object.assign({}, previousState, { loadingUsers: action.payload });
     case GET_USER_SUCCESS:
-      return Object.assign({}, previousState, { user: action.payload, loadingUser: false }); // Si existe Token, nos envía a la comprobación del <Redirect />
+      return Object.assign({}, previousState, { user: action.payload, loadingUser: false });
     case GET_USER_FAILURE:
       return Object.assign({}, previousState, { error: action.payload, loadingUser: false });
     case GET_USER_REQUEST:
-      return Object.assign({}, previousState, { loadingUser: action.payload }); // Si existe Token, nos envía a la comprobación del <Redirect />
+      return Object.assign({}, previousState, { loadingUser: action.payload });
     case SET_USER_SUCCESS:
       return Object.assign({}, previousState, { response: action.payload, loadingResponse: false });
     case SET_USER_FAILURE:
