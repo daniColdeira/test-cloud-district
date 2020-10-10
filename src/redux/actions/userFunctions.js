@@ -36,6 +36,7 @@ export const getUser = (id) => {
           type: types.GET_USER_FAILURE,
           payload: err.response
       });
+      dispatch(getUsersRequest(false));
       });
   };
 };
@@ -52,6 +53,7 @@ export const updateUser = (newUser) => {
       })
       .catch(err => {
         dispatch(setFailureUser(err.response));
+        dispatch(setUsersRequest(false));
       });
   };
 };
@@ -68,6 +70,7 @@ export const createUser = (newUser) => {
       })
       .catch(err => {
         dispatch(setFailureUser(err.response));
+        dispatch(setUsersRequest(false));
       });
   };
 };
