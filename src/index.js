@@ -9,7 +9,7 @@ import promiseMiddleware from "redux-promise"; //trata las promesas del redux as
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import StateProvider from './AuthContext/AuthContext.js';
+import AuthContext from './AuthContext/AuthContext.js';
 import { Router } from "react-router-dom"; //enrutamiento
 import reducers from "./redux/reducers/"; //reducers
 import thunk from 'redux-thunk';
@@ -35,13 +35,13 @@ const store = createStore(
 );
 
 const app = (
-  <StateProvider>
+  <AuthContext>
     <Provider store={store}>
       <Router history={historyRouting}>
         <App />
       </Router>
     </Provider>
-  </StateProvider>
+  </AuthContext>
 );
   
   ReactDOM.render(app, document.getElementById('root'));

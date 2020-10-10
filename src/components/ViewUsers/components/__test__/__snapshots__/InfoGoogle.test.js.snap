@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render with user 1`] = `
+<div
+  className="sc-hBMVcZ igCLLv"
+>
+  <img
+    alt="logo"
+  />
+  <div
+    className="sc-kfYqjs fDwxtA"
+  >
+    <div>
+      Daniel Coldeira
+    </div>
+    <div>
+      danielcoldeirarm@gmail.com
+    </div>
+  </div>
+  <button
+    className="sc-eCApGN kBtpMM"
+    onClick={[Function]}
+  >
+    <span>
+      LogOut
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-hBMVcZ igCLLv"
+>
+  <img
+    alt="logo"
+  />
+  <div
+    className="sc-kfYqjs fDwxtA"
+  >
+    <div />
+    <div />
+  </div>
+  <button
+    className="sc-eCApGN kBtpMM"
+    onClick={[Function]}
+  >
+    <span>
+      LogOut
+    </span>
+  </button>
+</div>
+`;

@@ -3,39 +3,13 @@
 exports[`renders correctly 1`] = `
 <div>
   <div
-    className="sc-bdnylx izYJON"
+    className="sc-hKFyIo gkzZcg"
   >
     <div
-      className="sc-hKFyIo jsSxpJ"
+      className="sc-gtssRu jmYPkE"
     >
-      <img
-        alt="logo"
-        src="cloud-district.jpg"
-        style={
-          Object {
-            "width": "20vw",
-          }
-        }
-      />
-      <div
-        className="sc-eCApGN hcaIrc"
-      >
-        <div
-          className="sc-dlnjPT hKjwxJ"
-        >
-          Social Login
-        </div>
-        <button
-          className="sc-jSFkmK gaEyV"
-          onClick={[Function]}
-        >
-          <span
-            className="sc-gtssRu jEzxKR"
-          >
-            Sign in with Google
-          </span>
-        </button>
-      </div>
+      <div />
+      <div />
     </div>
   </div>
 </div>
