@@ -2,7 +2,7 @@ import React from 'react';
 import { ErrDiv } from '../styled';
 import { useSelector } from "react-redux";
 
-function Info(props) {
+function Error(props) {
     const { error } = useSelector(state => ({
         error: state.users.error,
       }));
@@ -14,4 +14,4 @@ function Info(props) {
     );
 }
 
-export default Info;
+export default Error;

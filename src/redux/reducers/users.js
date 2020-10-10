@@ -18,7 +18,7 @@ const initialState = {
   loadingResponse: false,
 };
 
-const login = (previousState = initialState, action) => {
+const users = (previousState = initialState, action) => {
   switch (action.type) {
     case GET_USERS_SUCCESS:
       return Object.assign({}, previousState, { users: action.payload });
@@ -41,4 +41,4 @@ const login = (previousState = initialState, action) => {
   }
 };
 
-export default login;
+export default users;
