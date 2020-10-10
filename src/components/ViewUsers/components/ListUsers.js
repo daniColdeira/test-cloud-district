@@ -1,13 +1,15 @@
 import React, {useEffect, useState } from 'react';
 import { getUsers, getUser } from '../../../redux/actions/userFunctions'
 import { useDispatch, useSelector } from "react-redux";
+import LoadingSpinner from './LoadingSpinner';
 import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth, Bold, Close} from '../styled';
 
 function Users(props) {
     const[openUser, setOpenUser] = useState(false);
-    const { users, user } = useSelector(state => ({
+    const { users, user, loading } = useSelector(state => ({
       users: state.users.users,
-      user: state.users.user
+      user: state.users.user,
+      loading: state.users.loadingUser,
     }));
     const dispatch = useDispatch();
 
@@ -17,11 +19,9 @@ function Users(props) {
     }, [dispatch]);
 
     useEffect(() => {
-      // Obtiene la primera página de la lista de usuarios 
       if(user){
         setOpenUser(true);
-      }
-      
+      }      
     }, [user]);
 
     
@@ -59,9 +59,8 @@ function Users(props) {
           </ListUsers>
           <FlexUser>
             {
-              user && openUser &&
+              user && openUser && !loading &&
                 <InfoUser>
-                  
                   <div>
                     <Bold>Email</Bold>{`: ${user.data.email}`}
                   </div>
@@ -71,6 +70,10 @@ function Users(props) {
                   <img src={user.data.avatar} alt="avatar" />
                   <Close onClick={closeInfo}>Cerrar</Close>
                 </InfoUser>
+              }
+              {
+                loading &&
+                <LoadingSpinner />
               }
           </FlexUser>
         </>

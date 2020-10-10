@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import LoadingSpinner from './LoadingSpinner';
 import { createUser, updateUser } from '../../../redux/actions/userFunctions'
 import { Input, Button, CloseIcon, UsersDiv, FlexDiv, FlexColumn, UserForm, Flex, Margin15, Bold, MarginTop} from '../styled';
 
@@ -7,26 +8,23 @@ function UserForms(props) {
     const[successUser, setSuccessUser] = useState({ open:false, data:{}});
     const[openForm, setOpenForm] = useState({ open:false, type: ''});
     const[newUser, setNewUser]  = useState({ name:'', job:'', id: 0})
-    const { response } = useSelector(state => ({
+    const { response, loading } = useSelector(state => ({
       response: state.users.response,
+      loading: state.users.loadingResponse
     }));
     const dispatch = useDispatch();
 
     useEffect(() => {
-      // Obtiene la primera página de la lista de usuarios 
       if(response){
         setOpenForm(false)
         setSuccessUser({ open: true })
-      }
-      
+      }  
     }, [response]);
     
-    
-    
-      const closeInfo = () => {
-        setOpenForm(false)
-        setSuccessUser({...successUser , open: false})
-      }
+    const closeInfo = () => {
+      setOpenForm(false)
+      setSuccessUser({...successUser , open: false})
+    }
 
     return (
         <MarginTop>
@@ -37,10 +35,9 @@ function UserForms(props) {
               <div>---- o ----</div>
               <Button onClick={() => setOpenForm({ open: true, type: 'created'})}>Crear</Button>
             </UsersDiv>
-    }
-    {
+        }
+        {
             successUser.open && 
-            
             <UsersDiv border={'2px solid #62696C'} radius={"20px"} shadow={"5px 4px 5px 0px rgba(98,105,108,1)"}>
               <UserForm> 
                 <CloseIcon onClick={closeInfo}>X</CloseIcon>
@@ -50,18 +47,18 @@ function UserForms(props) {
                 <Margin15>
                   <><Bold>Puesto</Bold>{`: ${response.data.job}`} <Bold>Nombre</Bold>{`: ${response.data.name}`}</>
                 </Margin15>
-                <div>{ response.type === 'created' ?
-                  <><Bold>Fecha de creación</Bold>: {new Date(response.data.createdAt).toString()}</>
-                :
-                <><Bold>Fecha de actualización</Bold>: {new Date(response.data.updatedAt).toString()}</>
-                }</div>
+                <div>
+                  { response.type === 'created' ?
+                    <><Bold>Fecha de creación</Bold>: {new Date(response.data.createdAt).toString()}</>
+                    :
+                    <><Bold>Fecha de actualización</Bold>: {new Date(response.data.updatedAt).toString()}</>
+                  }
+                </div>
               </UserForm>
-              
             </UsersDiv>
-    }
-      
-      {
-            openForm.open && 
+        }
+        {
+          openForm.open && !loading && 
             <FlexDiv border={'2px solid #62696C'} radius={"20px"} shadow={"5px 4px 5px 0px rgba(98,105,108,1)"}>
                 <Flex>
                     <FlexColumn> 
@@ -91,6 +88,11 @@ function UserForms(props) {
                 </Flex>
                 
             </FlexDiv>
+        }
+        {
+          loading &&
+            <LoadingSpinner />
+
         }
         </MarginTop>
     );

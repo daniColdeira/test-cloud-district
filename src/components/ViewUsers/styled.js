@@ -145,7 +145,6 @@ export const ListUsers = styled.div`
     font-size: calc(10px + 1.3vmin);
     border: 2px solid #62696C;
     border-radius: 10px;
-    padding: 5px 0;
     min-width: 310px;
     -webkit-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
     -moz-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);

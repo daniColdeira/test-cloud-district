@@ -22,14 +22,14 @@ export const getUsers = (page) => {
 export const getUser = (id) => {
   
   return dispatch => {
-      dispatch(setLoading(false));
+      dispatch(getUsersRequest(true));
       axios.get("https://reqres.in/api/users/" + id)
       .then(res => {
         dispatch({
           type: types.GET_USER_SUCCESS,
           payload: res.data
       });
-        dispatch(setLoading(true));
+        dispatch(getUsersRequest(false));
       })
       .catch(err => {
         dispatch({
@@ -44,11 +44,11 @@ export const getUser = (id) => {
 export const updateUser = (newUser) => {
   
   return dispatch => {
-      dispatch(setLoading(false));
+      dispatch(setUsersRequest(true));
       axios.patch("https://reqres.in/api/users/"+ newUser.id, newUser)
       .then(response => {
         dispatch(setSuccessUser({ data:response.data, type:'updated'}))
-        dispatch(setLoading(true));
+        dispatch(setUsersRequest(false));
       })
       .catch(err => {
         dispatch(setFailureUser(err.response));
@@ -60,11 +60,11 @@ export const updateUser = (newUser) => {
 export const createUser = (newUser) => {
   
   return dispatch => {
-      dispatch(setLoading(false));
+      dispatch(setUsersRequest(true));
       axios.post("https://reqres.in/api/users/", newUser)
       .then(response => {
         dispatch(setSuccessUser({ data:response.data, type:'created'}))
-        dispatch(setLoading(true));
+        dispatch(setUsersRequest(false));
       })
       .catch(err => {
         dispatch(setFailureUser(err.response));
@@ -73,9 +73,16 @@ export const createUser = (newUser) => {
 };
 
 
-export function setLoading(status) {
+export function getUsersRequest(status) {
   return {
-      type: types.SET_LOADING,
+      type: types.GET_USER_REQUEST,
+      payload: status
+  };
+}
+
+export function setUsersRequest(status) {
+  return {
+      type: types.SET_USER_REQUEST,
       payload: status
   };
 }

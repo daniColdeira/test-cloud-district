@@ -15,7 +15,6 @@ function Login(props) {
     const onSuccess = (response) => {
         refreshToken(response);
         setUserAuth(response, true)
-        // dispatch(checkLogin(response))
     }
 
     const onFailure = (response) => {
