@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const getUsers = (page) => {
   return dispatch => {
+    dispatch(getUsersRequest(true));
       axios.get("https://reqres.in/api/users?page=" + page + "&per_page=5")
       .then(res => {
         dispatch({
@@ -22,21 +23,19 @@ export const getUsers = (page) => {
 export const getUser = (id) => {
   
   return dispatch => {
-      dispatch(getUsersRequest(true));
+      dispatch(getUserRequest(true));
       axios.get("https://reqres.in/api/users/" + id)
       .then(res => {
         dispatch({
           type: types.GET_USER_SUCCESS,
           payload: res.data
       });
-        dispatch(getUsersRequest(false));
       })
       .catch(err => {
         dispatch({
           type: types.GET_USER_FAILURE,
           payload: err.response
       });
-      dispatch(getUsersRequest(false));
       });
   };
 };
@@ -49,11 +48,9 @@ export const updateUser = (newUser) => {
       axios.patch("https://reqres.in/api/users/"+ newUser.id, newUser)
       .then(response => {
         dispatch(setSuccessUser({ data:response.data, type:'updated'}))
-        dispatch(setUsersRequest(false));
       })
       .catch(err => {
         dispatch(setFailureUser(err.response));
-        dispatch(setUsersRequest(false));
       });
   };
 };
@@ -66,17 +63,21 @@ export const createUser = (newUser) => {
       axios.post("https://reqres.in/api/users/", newUser)
       .then(response => {
         dispatch(setSuccessUser({ data:response.data, type:'created'}))
-        dispatch(setUsersRequest(false));
       })
       .catch(err => {
         dispatch(setFailureUser(err.response));
-        dispatch(setUsersRequest(false));
       });
   };
 };
 
-
 export function getUsersRequest(status) {
+  return {
+      type: types.GET_USERS_REQUEST,
+      payload: status
+  };
+}
+
+export function getUserRequest(status) {
   return {
       type: types.GET_USER_REQUEST,
       payload: status
