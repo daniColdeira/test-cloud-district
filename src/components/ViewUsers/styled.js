@@ -198,6 +198,7 @@ export const Margin15 = styled.div`
 
 export const MarginTop = styled.div`
   margin-top: 30px;
+  min-width: 30vw;
 `
 
 export const DivGoogle = styled.div`
