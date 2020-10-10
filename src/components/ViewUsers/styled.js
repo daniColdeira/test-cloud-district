@@ -17,6 +17,12 @@ export const Button = styled.button`
   } 
 `;
 
+export const CenterDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
@@ -89,7 +95,17 @@ export const WrapperUsers = styled.div`
   }
 `;
 
-export const AppHeader = styled.div`
+export const ErrDiv = styled.div`
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: #282c34;
+`
+
+export const Users = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -146,7 +162,7 @@ export const FlexUser= styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  min-width: 30%; 
+  min-width: 306px; 
   align-items: center;   
 `  
 
@@ -162,6 +178,7 @@ export const UsersDiv = styled.div `
   -webkit-box-shadow: ${props => props.shadow || ""};
   -moz-box-shadow: ${props => props.shadow || ""};
   box-shadow: ${props => props.shadow || ""};
+  min-width: ${props => props.minWidth || 0};
 `
 
 export const FlexPointer = styled.div `
@@ -208,6 +225,7 @@ export const InfoUser = styled.div`
   flex-direction: column;
   justify-content: center; 
   align-items: center;
+  min-width: 306px;
 `
 export const UserForm = styled.div`
   display: flex;

@@ -1,30 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useGoogleLogin } from 'react-google-login';
-import { store } from '../../store/store.js';
 import { refreshToken } from '../../utils/refreshToken';
 import cloud from '../../img/cloud-district.jpg'
-import { Button, WrapperLogin, LoginTitle, LoginDiv, LoginSocial, LoginName } from './styled';
+import { AuthContext } from '../../AuthContext/AuthContext.js';
 
-function Login() { 
-    const globalState = useContext(store);
+import { Redirect } from "react-router-dom";
+import { Button, WrapperLogin, LoginTitle, LoginDiv, LoginSocial, LoginName, Spinner, CenterDiv } from './styled';
+
+function Login(props) { 
+    const[loginSuccess, setLoginSuccess] = useState(undefined);
+    const { user, setUserAuth } = useContext(AuthContext);
+    
+
     const onSuccess = (response) => {
         refreshToken(response);
-        const { dispatch } = globalState;
-        dispatch({ type: 'login', payload: response })
+        setUserAuth(response, true)
+        // dispatch(checkLogin(response))
     }
 
     const onFailure = (response) => {
         console.log('Failure', response);
     }
 
-    const {signIn } = useGoogleLogin({
-        clientId:"67870201376-kopnssl2i3uerlv4a15u6k6jv7kh5ob1.apps.googleusercontent.com",
+    const onAutoLoadFinished = (response) => {
+        setLoginSuccess(true)
+        return response;
+    }
+
+    const { signIn } = useGoogleLogin({
+        clientId:"948322712560-47619obq9qjo58sr4ajnukaaqkcgup36.apps.googleusercontent.com",
         onSuccess,
         onFailure,
+        onAutoLoadFinished,
         isSignedIn:true,
     })
 
+    if(!loginSuccess){
+        return <CenterDiv><Spinner><div></div><div></div></Spinner></CenterDiv>
+    }
+    
+
     return(
+        !user.isAuthenticated ?
         <WrapperLogin>
            <LoginDiv>
             <img src={cloud} alt="logo" style={{ width: '20vw'}}/>
@@ -36,8 +53,11 @@ function Login() {
                 </LoginSocial>
            </LoginDiv> 
         </WrapperLogin>
+        :
+        <Redirect to="/users" />
     );
 }
+  
 export default Login;
 
  

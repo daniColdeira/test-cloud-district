@@ -1,20 +1,20 @@
-import React, {useContext} from 'react';
-import { store } from '../../../store/store.js';
+import React, { useContext } from 'react';
 import Logout from '../../GoogleLogout';
 import { InfoGoogle, DivGoogle } from '../styled';
+import { AuthContext } from '../../../AuthContext/AuthContext.js';
 
-function Info() {
-    const globalState = useContext(store);
+function Info(props) {
+    const { user } = useContext(AuthContext);
     
     return (
         <InfoGoogle>
-            <img src={globalState.state.user.profileObj && globalState.state.user.profileObj.imageUrl} alt="logo" />
+            <img src={user.user.profileObj && user.user.profileObj.imageUrl} alt="logo" />
             <DivGoogle>
                 <div>
-                    {globalState.state.user.profileObj && globalState.state.user.profileObj.name}
+                    {user.user.profileObj && user.user.profileObj.name}
                 </div>
                 <div>
-                    {globalState.state.user.profileObj && globalState.state.user.profileObj.email}
+                    {user.user.profileObj && user.user.profileObj.email}
                 </div>
             </DivGoogle>
             <Logout />

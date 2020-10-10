@@ -1,41 +1,44 @@
 import React, {useEffect, useState } from 'react';
-import axios from "axios";
+import { getUsers, getUser } from '../../../redux/actions/userFunctions'
+import { useDispatch, useSelector } from "react-redux";
 import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth, Bold, Close} from '../styled';
 
-function GoogleLogout() {
-    const [users, setUsers] = useState([]);
-    const[user, setUser] = useState(null);
+function Users(props) {
+    const[openUser, setOpenUser] = useState(false);
+    const { users, user } = useSelector(state => ({
+      users: state.users.users,
+      user: state.users.user
+    }));
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        // Obtiene la primera página de la lista de usuarios 
-        getUsers(1);
-      }, []);
+      // Obtiene la primera página de la lista de usuarios 
+      dispatch(getUsers(1));
+    }, [dispatch]);
 
-    const getUsers = (page) => {
-        axios.get("https://reqres.in/api/users?page=" + page + "&per_page=5").then(response => {
-          setUsers(response.data)
-        })
+    useEffect(() => {
+      // Obtiene la primera página de la lista de usuarios 
+      if(user){
+        setOpenUser(true);
       }
+      
+    }, [user]);
+
     
-      const getUser = (id) => {
-        axios.get("https://reqres.in/api/users/" + id).then(response => {
-          setUser(response.data)
-        })
-      }
 
-      const drawPagination = () => {
-        let paginations = [];
-        for(let i = 1; i <= users.total_pages; i++){
-          let pag =  <div>
-              <PagLink onClick={() => getUsers(i)}>{i}</PagLink>
-          </div>
-          paginations.push(pag)
-        }
-        return paginations;
+    const drawPagination = () => {
+      let paginations = [];
+      for(let i = 1; i <= users.total_pages; i++){
+        let pag =  <div>
+            <PagLink onClick={() => dispatch(getUsers(i))}>{i}</PagLink>
+        </div>
+        paginations.push(pag)
+      }
+      return paginations;
     }
 
     const closeInfo = () => {
-      setUser(null)
+      setOpenUser(null)
     }
 
     return (
@@ -43,7 +46,7 @@ function GoogleLogout() {
           <ListUsers>
             {
               users.data && users.data.map((user) => 
-                  <Link onClick={() => getUser(user.id)}><MinWidth>{user.email}</MinWidth></Link>
+                  <Link onClick={() => dispatch(getUser(user.id))}><MinWidth>{user.email}</MinWidth></Link>
               )
             } 
             <FlexPointer>
@@ -56,7 +59,7 @@ function GoogleLogout() {
           </ListUsers>
           <FlexUser>
             {
-              user &&
+              user && openUser &&
                 <InfoUser>
                   
                   <div>
@@ -74,4 +77,4 @@ function GoogleLogout() {
     );
 }
 
-export default GoogleLogout;
+export default Users;

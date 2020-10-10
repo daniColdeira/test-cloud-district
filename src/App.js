@@ -1,21 +1,22 @@
-import React, { useContext } from 'react';
-import { store } from './store/store.js';
+import React from 'react';
 import Login from './components/GoogleLogin';
 import ViewUsers from './components/ViewUsers'; 
+import { Route, Switch } from "react-router-dom";
+import PrivateRoute from './layout/PrivateRoute'
 
-function App() {
-  const globalState = useContext(store);
-
+function App(props) {
+  
   return (
     <div>
-      {
-        !globalState.state.logged ?
-        <Login />
-        :
-        <ViewUsers />
-      }
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <PrivateRoute path="/users">
+            <ViewUsers />
+          </PrivateRoute>
+        </Switch> 
     </div>
   );
 }
+
 
 export default App;

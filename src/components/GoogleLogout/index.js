@@ -1,13 +1,12 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { useGoogleLogout } from 'react-google-login';
-import { store } from '../../store/store.js';
 import { Button } from './styled';
+import { AuthContext } from '../../AuthContext/AuthContext.js';
 
-function GoogleLogout() {
-    const globalState = useContext(store);
+function GoogleLogout(props) {
+    const { setUserAuth } = useContext(AuthContext);
     const onLogoutSuccess = (response) => {
-        const { dispatch } = globalState;
-        dispatch({ type: 'logout' })
+        setUserAuth(response, false)
     };
 
     const onFailure = (response) => {
@@ -26,5 +25,5 @@ function GoogleLogout() {
         </Button>
     );
 }
-
+  
 export default GoogleLogout;
