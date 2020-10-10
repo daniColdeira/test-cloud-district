@@ -7,7 +7,7 @@ In the project directory, you can run:
 ### `npm install`
 
 Install the app in your environment.<br />
-Craete the folder node_modules.
+Create the folder node_modules.
 
 
 ### `npm start`
