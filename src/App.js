@@ -1,6 +1,6 @@
 import React from 'react';
 import Login from './components/GoogleLogin';
-import ViewUsers from './components/ViewUsers'; 
+import UsersView from './components/UsersView'; 
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from './layout/PrivateRoute'
 
@@ -11,7 +11,7 @@ function App(props) {
         <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/users">
-            <ViewUsers />
+            <UsersView />
           </PrivateRoute>
         </Switch> 
     </div>

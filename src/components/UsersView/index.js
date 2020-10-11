@@ -5,7 +5,7 @@ import UserForm from './components/UserForm';
 import Error from './components/Error';
 import { Users, WrapperUsers, FlexDiv, TitleUsers} from './styled';
 
-function App(props) {
+function UsersView(props) {
   return (
     <div>
       <Users>
@@ -23,4 +23,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default UsersView;
