@@ -128,7 +128,7 @@ export const InfoGoogle = styled.div`
     -moz-box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
     box-shadow: 5px 4px 5px 0px rgba(98,105,108,1);
     @media (max-width: 600px) {
-      padding: 15px;
+      padding: 10px 5px;
       font-size: 10px;
       flex-direction: column;
     }
@@ -179,6 +179,9 @@ export const UsersDiv = styled.div `
   box-shadow: ${props => props.shadow || ""};
   min-width: ${props => props.minWidth || 0};
   width:30vw;
+  @media (max-width: 960px) {
+    width: auto;
+  }
 `
 
 export const FlexPointer = styled.div `
@@ -200,6 +203,9 @@ export const Margin15 = styled.div`
 export const MarginTop = styled.div`
   margin-top: 30px;
   width: 30vw;
+  @media (max-width: 960px) {
+    width: auto;
+  }
 `
 
 export const DivGoogle = styled.div`
@@ -207,7 +213,7 @@ export const DivGoogle = styled.div`
   flex-direction: column; 
   margin: 0 20px;
   @media (max-width: 600px) {
-    padding: 20px 30px;
+    padding: 5px 30px;
     font-size: 10px;
     flex-direction: column;
     margin: 10px 0 0;
