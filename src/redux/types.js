@@ -1,6 +1,7 @@
 //Funcionamiento
 export const LOG_OUT = "LOG_OUT";
 //-----------------------------------------
+
 //Users
 export const GET_USERS_REQUEST = "GET_USERS_REQUEST";
 export const GET_USERS_FAILURE = "GET_USERS_FAILURE";
@@ -9,7 +10,6 @@ export const GET_USERS_SUCCESS = "GET_USERS_SUCCESS";
 export const GET_USER_SUCCESS = "GET_USER_SUCCESS";
 export const GET_USER_FAILURE = "GET_USER_FAILURE";
 export const GET_USER_REQUEST = "GET_USER_REQUEST";
-
 
 export const SET_USER_SUCCESS = "SET_USER_SUCCESS";
 export const SET_USER_FAILURE = "SET_USER_FAILURE";
