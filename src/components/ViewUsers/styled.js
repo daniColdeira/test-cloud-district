@@ -90,7 +90,7 @@ export const WrapperUsers = styled.div`
   min-width: 60vw;
   max-width: 80vw;
   min-height: 370px;
-  @media (max-width: 960px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
   }
 `;
@@ -180,7 +180,7 @@ export const UsersDiv = styled.div `
   box-shadow: ${props => props.shadow || ""};
   min-width: ${props => props.minWidth || 0};
   width:30vw;
-  @media (max-width: 960px) {
+  @media (max-width: 1200px) {
     width: auto;
   }
 `
@@ -204,8 +204,15 @@ export const Margin15 = styled.div`
 export const MarginTop = styled.div`
   margin-top: 30px;
   width: 30vw;
-  @media (max-width: 960px) {
+  @media (max-width: 1200px) {
     width: auto;
+  }
+`
+
+export const DivList = styled.div`
+  display: flex;
+  @media (max-width: 960px) {
+    flex-direction: column;
   }
 `
 

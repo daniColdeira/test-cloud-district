@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { getUsers, getUser } from '../../../redux/actions/userFunctions'
 import { useDispatch, useSelector } from "react-redux";
 import LoadingSpinner from './LoadingSpinner';
-import { Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth, Bold, Close} from '../styled';
+import { DivList, Link, ListUsers, PagLink, FlexUser, FlexPointer, InfoUser, Margin15, MinWidth, Bold, Close} from '../styled';
 
 function Users(props) {
     const[openUser, setOpenUser] = useState(false);
@@ -42,7 +42,7 @@ function Users(props) {
     }
 
     return (
-        <>
+        <DivList>
           <ListUsers>
             {
               users.data && users.data.map((user) => 
@@ -57,26 +57,28 @@ function Users(props) {
               }
             </FlexPointer>
           </ListUsers>
-          <FlexUser>
+          
             {
-              user && openUser && !loading &&
-                <InfoUser>
-                  <div>
-                    <Bold>Email</Bold>{`: ${user.data.email}`}
-                  </div>
-                  <Margin15>
-                    <Bold>Nombre</Bold>{`: ${user.data.first_name} ${user.data.last_name}`}
-                  </Margin15>
-                  <img src={user.data.avatar} alt="avatar" />
-                  <Close onClick={closeInfo}>Cerrar</Close>
-                </InfoUser>
-              }
-              {
-                loading &&
-                <LoadingSpinner />
-              }
-          </FlexUser>
-        </>
+              user && openUser && 
+              <FlexUser>
+                {
+                  !loading ?
+                  <InfoUser>
+                    <div>
+                      <Bold>Email</Bold>{`: ${user.data.email}`}
+                    </div>
+                    <Margin15>
+                      <Bold>Nombre</Bold>{`: ${user.data.first_name} ${user.data.last_name}`}
+                    </Margin15>
+                    <img src={user.data.avatar} alt="avatar" />
+                    <Close onClick={closeInfo}>Cerrar</Close>
+                  </InfoUser>
+                  :
+                  <LoadingSpinner />
+                }
+              </FlexUser>
+            }
+        </DivList>
     );
 }
 
