@@ -178,6 +178,7 @@ export const UsersDiv = styled.div `
   -moz-box-shadow: ${props => props.shadow || ""};
   box-shadow: ${props => props.shadow || ""};
   min-width: ${props => props.minWidth || 0};
+  width:30vw;
 `
 
 export const FlexPointer = styled.div `
@@ -198,7 +199,7 @@ export const Margin15 = styled.div`
 
 export const MarginTop = styled.div`
   margin-top: 30px;
-  min-width: 30vw;
+  width: 30vw;
 `
 
 export const DivGoogle = styled.div`
