@@ -113,6 +113,7 @@ export const Users = styled.div`
     justify-content: center;
     font-size: calc(10px + 1vmin);
     color: #282c34;
+    padding-top: 25px;
 `
 
 export const InfoGoogle = styled.div`
