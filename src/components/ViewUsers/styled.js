@@ -214,7 +214,7 @@ export const DivGoogle = styled.div`
   flex-direction: column; 
   margin: 0 20px;
   @media (max-width: 600px) {
-    padding: 5px 30px;
+    padding: 5px 20px;
     font-size: 10px;
     flex-direction: column;
     margin: 10px 0 0;
