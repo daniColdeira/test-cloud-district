@@ -19,7 +19,7 @@ const middleware = [
 ];
 
 const store = createStore(
-  reducers(),
+  reducers,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
