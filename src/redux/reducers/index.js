@@ -1,15 +1,17 @@
 import { combineReducers } from "redux";
 import users from "./users";
+import { connectRouter } from 'connected-react-router'
 
-const appReducer = combineReducers({
+const createRootReducer = (history) => combineReducers({
+  router: connectRouter(history),
   users,
-});
+})
 
-const rootReducer = (state, action) => {
+const rootReducer = (history) => (state, action) => {
   if (action.type === 'LOG_OUT') {
     state = undefined;
   }
-  return appReducer(state, action);
+  return createRootReducer(history)(state, action);
 };
 
-export default rootReducer;
+export default rootReducer

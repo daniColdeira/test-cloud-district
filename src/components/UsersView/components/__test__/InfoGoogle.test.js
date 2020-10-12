@@ -7,22 +7,19 @@ import TestRenderer from 'react-test-renderer';
 import { Provider } from "react-redux";
 import reducers from '../../../../redux/reducers'
 import { createStore, applyMiddleware } from "redux";
+import { ConnectedRouter } from 'connected-react-router'
+import configureStore, { history } from "../../../../store"; //historial de rutas
 
+const store = configureStore()
 
-import { Router } from "react-router-dom"; //enrutamiento
-import historyRouting from "../../../../history"; //historial de rutas
-
-const store = createStore(
-    reducers,
-  );
 test("renders correctly", () => {
     const tree = renderer
     .create(
         <Context>
             <Provider store={store}>
-                <Router history={historyRouting}>
+                <ConnectedRouter history={history}>
                     <InfoGoogle />
-                </Router>
+                </ConnectedRouter>
             </Provider>
             
         </Context>
