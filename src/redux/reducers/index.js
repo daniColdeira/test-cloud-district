@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 import users from "./users";
-import { resetStore } from '../../index.js'
 
 const appReducer = combineReducers({
   users,
@@ -8,9 +7,8 @@ const appReducer = combineReducers({
 
 const rootReducer = () => (state, action) => {
   if (action.type === 'LOG_OUT') {
-      return appReducer(resetStore(), action);
+    state = undefined;
   }
-
   return appReducer(state, action);
 };
 

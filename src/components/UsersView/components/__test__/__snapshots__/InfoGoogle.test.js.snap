@@ -2,13 +2,13 @@
 
 exports[`render with user 1`] = `
 <div
-  className="sc-hBMVcZ igCLLv"
+  className="sc-hBMVcZ gJpLAz"
 >
   <img
     alt="logo"
   />
   <div
-    className="sc-kfYqjs fDwxtA"
+    className="sc-fKgIGh kKkNGW"
   >
     <div>
       Daniel Coldeira
@@ -30,13 +30,13 @@ exports[`render with user 1`] = `
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-hBMVcZ igCLLv"
+  className="sc-hBMVcZ gJpLAz"
 >
   <img
     alt="logo"
   />
   <div
-    className="sc-kfYqjs fDwxtA"
+    className="sc-fKgIGh kKkNGW"
   >
     <div />
     <div />

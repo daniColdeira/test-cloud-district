@@ -23,19 +23,6 @@ function loggerRedux({ getState }) {
   };
 }
 
-export const resetStore = () => {
-  const middleware = [
-    loggerRedux, 
-    promiseMiddleware,
-    thunk
-  ];
-  const store = createStore(
-      reducers(),
-      composeWithDevTools(applyMiddleware(...middleware))
-  );
-  return store.getState();
-}
-
 const middleware = [
   loggerRedux, 
   promiseMiddleware,
