@@ -13,18 +13,7 @@ import { Router } from "react-router-dom"; //enrutamiento
 import reducers from "./redux/reducers/"; //reducers
 import thunk from 'redux-thunk';
 
-function loggerRedux({ getState }) {
-  return next => action => {
-    // Llama al siguiente método dispatch en la cadena de middlewares
-    let returnValue = next(action);
-    // Este seguramente sera la acción, excepto
-    // que un middleware anterior la haya modificado.
-    return returnValue;
-  };
-}
-
 const middleware = [
-  loggerRedux, 
   promiseMiddleware,
   thunk
 ];
